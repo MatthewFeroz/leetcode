@@ -57,18 +57,10 @@ car_speed = [3,2]
 
 def carFleet(target, position, speed):
     pair = [[pos, spe] for pos, spe in zip(position, speed)] #
-    
     stack = []
     for pos, spe in sorted(pair)[::-1]:
         stack.append((target - pos) / spe)
         if len(stack) >= 2 and stack[-1] <= stack[-2]:
             stack.pop()
     return len(stack)
-        
-    
-
 print(carFleet(destination, car_position, car_speed))
-
-            
-            
-        
